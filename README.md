@@ -6,11 +6,11 @@
 
 ## Usage
 
-```
+~~~~
     usage: python3 tokbox.py [-h] --initial_book_price INITIAL_BOOK_PRICE --discount
                  DISCOUNT --price_floor PRICE_FLOOR --usuable_dollars
                  USUABLE_DOLLARS
-    ```
+~~~~
 
     INITIAL_BOOK_PRICE
         * Price of first book
