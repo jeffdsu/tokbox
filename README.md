@@ -2,7 +2,7 @@
 
 ## Installation
 
-    ```brew install python3```
+    brew install python3
 
 ## Usage
 
