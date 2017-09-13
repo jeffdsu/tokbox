@@ -83,6 +83,36 @@ def check_purchasing_power(usable_dollar_amount, func_price_of_nth_book):
     return (book_count - 1, usable_dollar_amount - temp_cost)
 
 
+def validate_and_return_initial_book_price(initial_book_price):
+    if initial_book_price <= 0:
+        raise Exception("Initial should be greater than 0")
+
+    return  initial_book_price
+
+def validate_and_return_discount(discount):
+
+    if discount < 0:
+        raise Exception("Discount cannot be less than 0")
+
+    return discount
+
+
+def validate_and_return_price_floor(price_floor, initial_book_price):
+
+    if price_floor < 0:
+        raise Exception("Price floor cannot be less than 0")
+
+    if initial_book_price < price_floor:
+        raise Exception("Price floor cannot be greater than Initial book price")
+
+    return price_floor
+
+def validate_usuable_dollars(usuable_dollars):
+    if usuable_dollars < 0:
+        raise Exception("usuable_dollars cannot be less than 0")
+
+    return usable_dollars
+
 if __name__ == "__main__":
 
     args = get_args()
@@ -91,9 +121,9 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
 
     # Once these are set, they should never be changed anywhere inside code
-    CONST_initial_book_price = args.initial_book_price
-    CONST_discount = args.discount
-    CONST_price_floor = args.price_floor
+    CONST_initial_book_price = validate_and_return_initial_book_price(args.initial_book_price)
+    CONST_discount = validate_and_return_discount(args.discount)
+    CONST_price_floor = validate_and_return_price_floor(args.price_floor, CONST_initial_book_price)
 
     usable_dollars = args.usuable_dollars
 
