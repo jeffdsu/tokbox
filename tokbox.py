@@ -15,7 +15,7 @@ def get_args():
     parser.add_argument('--price_floor', type=float, required=True,
                         help='price floor of sale')
 
-    parser.add_argument('--usuable_dollars', type=float, required=True,
+    parser.add_argument('--usable_dollars', type=float, required=True,
                         help='dollar amount purchaser has')
 
 
@@ -37,16 +37,16 @@ def get_price_of_book_during_sale(book_num):
 
     return CONST_price_floor if price_without_floor <= CONST_price_floor else price_without_floor
 
-def can_purchase(price_of_book, total_usuable_dollars, current_cost):
+def can_purchase(price_of_book, total_usable_dollars, current_cost):
     """
     Checks with the remaining dollars, if the current book can be bought
 
-    Accepts a the price of nth_book, total usuable dollars, and current cost of in cart
+    Accepts a the price of nth_book, total usable dollars, and current cost of in cart
 
     Return True/False
     """
 
-    if price_of_book <= (total_usuable_dollars - current_cost):
+    if price_of_book <= (total_usable_dollars - current_cost):
         return True
     return False
 
@@ -107,9 +107,9 @@ def validate_and_return_price_floor(price_floor, initial_book_price):
 
     return price_floor
 
-def validate_usuable_dollars(usuable_dollars):
-    if usuable_dollars < 0:
-        raise Exception("usuable_dollars cannot be less than 0")
+def validate_usable_dollars(usable_dollars):
+    if usable_dollars < 0:
+        raise Exception("usable_dollars cannot be less than 0")
 
     return usable_dollars
 
@@ -125,7 +125,7 @@ if __name__ == "__main__":
     CONST_discount = validate_and_return_discount(args.discount)
     CONST_price_floor = validate_and_return_price_floor(args.price_floor, CONST_initial_book_price)
 
-    usable_dollars = args.usuable_dollars
+    usable_dollars = args.usable_dollars
 
     (num_books, remaining_dollars) = check_purchasing_power(usable_dollars, get_price_of_book_during_sale)
 
