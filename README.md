@@ -20,3 +20,8 @@
         * Lowest price a book can reach
     USUABLE_DOLLARS
         * Dollar amount purchaser has to buy books
+
+
+## Run tests
+
+    python3 tests.py
