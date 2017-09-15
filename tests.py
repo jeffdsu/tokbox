@@ -39,6 +39,7 @@ def validate_initial_book_negative_case():
         (num_books, remaining_dollars) = get_purchasing_power_during_sale(initial_book_price, discount, price_floor, usable_dollars)
 
     except Exception as e:
+        # If I were to build a full app, these would probably go into some exception library, and compares would be done on Exception objs
         assert str(e) == 'Initial price should be greater than 0'
         return
 
@@ -56,6 +57,7 @@ def validate_discount_negative_case():
         (num_books, remaining_dollars) = get_purchasing_power_during_sale(initial_book_price, discount, price_floor, usable_dollars)
 
     except Exception as e:
+        # If I were to build a full app, these would probably go into some exception library, and compares would be done on Exception objs
         assert str(e) == 'Discount cannot be less than 0'
         return
 
@@ -73,6 +75,7 @@ def validate_price_floor_negative_case():
         (num_books, remaining_dollars) = get_purchasing_power_during_sale(initial_book_price, discount, price_floor, usable_dollars)
 
     except Exception as e:
+        # If I were to build a full app, these would probably go into some exception library, and compares would be done on Exception objs
         assert str(e) == 'Price floor cannot be less than 0'
         return
 
@@ -90,6 +93,7 @@ def validate_price_floor_lt_initial_price_negative_case():
         (num_books, remaining_dollars) = get_purchasing_power_during_sale(initial_book_price, discount, price_floor, usable_dollars)
 
     except Exception as e:
+        # If I were to build a full app, these would probably go into some exception library, and compares would be done on Exception objs
         assert str(e) == 'Price floor cannot be greater than Initial book price'
         return
 
